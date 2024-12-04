@@ -65,7 +65,7 @@ int main(){
 
             }
             printf("\n");
-            printf("Moving Down Count: %d, Moving Up Count: %d\n", iMovingDownCount, iMovingUpCount);
+            // printf("Moving Down Count: %d, Moving Up Count: %d\n", iMovingDownCount, iMovingUpCount);
             
             
             // Get whether the line is mostly moving up or down
@@ -73,54 +73,60 @@ int main(){
 
             int iMistakesFound = 0;
 
-            for (int i = 0; i < numIndex - 1 - iMistakesFound; i++){
+            bool bMovingUp
 
-                bool mistakeDetected = checkForMistake(nums[i], nums[i+1], bMostlyMovingUp);
-                
-                printf("(%d", nums[i]);
-                if(mistakeDetected){
-                    printf("*");
-                }else{
-                    printf("-");
-                }
-                printf("%d) ", nums[i+1]);
-
-                if(mistakeDetected){
-
-                    // Try removing i
-                    bool bCanRemoveI = false;
-                    if(((i >= 1 && !checkForMistake(nums[i-1], nums[i+1], bMostlyMovingUp)) && !checkForMistake(nums[i+1], nums[i+2], bMostlyMovingUp)) || (i == 0 && !checkForMistake(nums[i+1], nums[i+2], bMostlyMovingUp))){
-                        bCanRemoveI = true;
-                    }
-
-                    bool bCanRemoveIPlusOne = false;
-                    if(i + 1 == numIndex - 1 - iMistakesFound || !checkForMistake(nums[i], nums[i+2], bMostlyMovingUp)){
-                        bCanRemoveIPlusOne = true;
-                    }
-
-                    if(bCanRemoveI){
-                        printf(" <removed: %d> ", nums[i]);
-                        removeIndexFromArray(&nums, i, numIndex);
-
-
-                    } else if(bCanRemoveIPlusOne){
-                        printf(" <removed: %d> ", nums[i+1]);
-                        removeIndexFromArray(&nums, i+1, numIndex);
-                    } else {
-                        iMistakesFound += 2;
-                        break;
-                    }
-
-                    i--;
-                    iMistakesFound++;
-                    
-                }
-
-                // if(iMistakesFound > 1){
-                //     break;
-                // }
+            for (int i = 0; i < numIndex - 1; i++){
 
             }
+
+            // for (int i = 0; i < numIndex - 1 - iMistakesFound; i++){
+
+            //     bool mistakeDetected = checkForMistake(nums[i], nums[i+1], bMostlyMovingUp);
+                
+            //     printf("(%d", nums[i]);
+            //     if(mistakeDetected){
+            //         printf("*");
+            //     }else{
+            //         printf("-");
+            //     }
+            //     printf("%d) ", nums[i+1]);
+
+            //     if(mistakeDetected){
+
+            //         // Try removing i
+            //         bool bCanRemoveI = false;
+            //         if(((i >= 1 && !checkForMistake(nums[i-1], nums[i+1], bMostlyMovingUp)) && !checkForMistake(nums[i+1], nums[i+2], bMostlyMovingUp)) || (i == 0 && !checkForMistake(nums[i+1], nums[i+2], bMostlyMovingUp))){
+            //             bCanRemoveI = true;
+            //         }
+
+            //         bool bCanRemoveIPlusOne = false;
+            //         if(i + 1 == numIndex - 1 - iMistakesFound || !checkForMistake(nums[i], nums[i+2], bMostlyMovingUp)){
+            //             bCanRemoveIPlusOne = true;
+            //         }
+
+            //         if(bCanRemoveI){
+            //             printf(" <removed: %d> ", nums[i]);
+            //             removeIndexFromArray(&nums, i, numIndex);
+
+
+            //         } else if(bCanRemoveIPlusOne){
+            //             printf(" <removed: %d> ", nums[i+1]);
+            //             removeIndexFromArray(&nums, i+1, numIndex);
+            //         } else {
+            //             iMistakesFound += 2;
+            //             break;
+            //         }
+
+            //         i--;
+            //         iMistakesFound++;
+                    
+            //     }
+
+            //     // if(iMistakesFound > 1){
+            //     //     break;
+            //     // }
+
+            // }
 
 
             // if the level only moved up or down and didn't move by more than 3 each step
